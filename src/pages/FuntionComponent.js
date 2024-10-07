@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { userIdContext, userUpdate, useTheme, useThemeUpdate } from './ThemeContext'
+import Link from 'next/link'
 
 const FunctionContextComponent = () => {
     const darkTheme = useTheme()
@@ -26,11 +27,9 @@ const FunctionContextComponent = () => {
         <button onClick={()=>{userLoginLogout(username)}}>Click to check user</button>
         <button onClick={()=>{userLoginLogout(null)}}>Click to log out</button>
         <hr />
-        <div>{userId? `Hi! Welcome to page! ${userId} `: 'Please register'}</div>
+        <div>{userId? `Hi! ${userId} `: 'Please Login'}</div>
         <hr />
-        <div>
-            {userId ? 'Logined' : 'User is log out'}
-        </div>
+        <Link href={{pathname: '/ShowUser',query: {username}}}> Show User Link </Link>
     </>
   )
 }

@@ -1,15 +1,15 @@
 import React from 'react'
 
 import FunctionContextComponent from './FuntionComponent'
-import Link from 'next/link'
+
+import { userIdContext } from './ThemeContext'
 
 
 const App = () => {
+    const userId = userIdContext()
   return (
     <>
         <FunctionContextComponent />
-        < hr/>
-        <Link href='./ShowUser'>Show Me</Link>
     </>
   )
 }

@@ -1,12 +1,13 @@
 import React from 'react'
-import { userIdContext } from './ThemeContext'
 
-const ShowUser = () => {
-    const userId = userIdContext()
+
+const ShowUser = ({data}) => {
 
   return (
     <>
-    <p> {userId ? `i am ok ${userId}` : 'not log in'} </p>
+    <p> {data} </p>
+    < hr />
+    <p> aiosjdioajsiodjaio</p>
     </>
   )
 }
