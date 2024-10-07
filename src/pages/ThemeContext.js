@@ -22,7 +22,7 @@ export function userUpdate() {
 
 export default function ThemeProvider({children}) {
     const [darkTheme, setDarkTheme] = useState(true)
-    const [username,setUsername] = useState(null)
+    const [username,setUsername] = useState('')
 
     function toggleTheme() {
         setDarkTheme(darkTheme => !darkTheme)
@@ -34,11 +34,13 @@ export default function ThemeProvider({children}) {
 return (
     <ThemeContext.Provider value={darkTheme}>
         <ThemeUpdateContext.Provider value={toggleTheme}>
-            <UserContext.Provider value={username}>
+
                 <UserUpdateContext.Provider value={setUser}>
+            <UserContext.Provider value={username}>
                     {children}
-                </UserUpdateContext.Provider>
             </UserContext.Provider>
+                </UserUpdateContext.Provider>
+
         </ThemeUpdateContext.Provider>
     </ThemeContext.Provider>
 )

@@ -5,10 +5,10 @@ const FunctionContextComponent = () => {
     const darkTheme = useTheme()
     const toggleTheme = useThemeUpdate()
 
-    const userInfo = userUpdate()
     const userId = userIdContext()
+    const userLoginLogout = userUpdate()
 
-    const [value22,setValue22] = useState('')
+    const [username,setUsername] = useState()
 
     const themeStyles = {
         backgroundColor: darkTheme ? '#333' : '#CCC',
@@ -21,14 +21,15 @@ const FunctionContextComponent = () => {
         <>
         <button onClick={toggleTheme}>Toggle Theme</button>
         <div style={themeStyles}>Function Theme</div>
-        <input type="text" onChange={e=>{setValue22(e.target.value)}}></input> 
-        <button onClick={()=>{userInfo(value22)}}>Click to check user</button>
-        <button onClick={()=>{userInfo(null)}}>Click to log out</button>
+        
+        <input type="text" onChange={e=>{setUsername(e.target.value)}}></input> 
+        <button onClick={()=>{userLoginLogout(username)}}>Click to check user</button>
+        <button onClick={()=>{userLoginLogout(null)}}>Click to log out</button>
         <hr />
         <div>{userId? `Hi! Welcome to page! ${userId} `: 'Please register'}</div>
         <hr />
         <div>
-            {userId ? 'User is log in with Id: "123"' : 'User is log out'}
+            {userId ? 'Logined' : 'User is log out'}
         </div>
     </>
   )
